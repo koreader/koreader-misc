@@ -1,9 +1,6 @@
 #!/bin/sh
 
-SUMMARY="koreader-nightly-`date +%Y%m%d`"
-PROJECT="koreader-package"
-USER="******@gmail.com"
-PASSWORD="************"
+source ./koreader-nightlybuild.conf
 
 echo "clone koreader to dev directory"
 cd ~/dev
