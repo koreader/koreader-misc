@@ -45,8 +45,22 @@ class Lua_GetText(object):
 
     def parse(self, contents, filename):
         for m in self._SIMPLE_STRING.finditer(contents):
+            # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            #if m.group("concat"):
+                #text = m.group("all_text").strip()
+                #text = self._CONCATENATION.subn("", text)[0]
+                #if text.startswith('[['): text = text[2:]
+                #elif text[0] in '\'"': text = text[1:]
+                #if text.endswith(']]'): text = text[:-2]
+                #elif text[-1] in '\'"': text = text[:-1]
+                #start = m.start('paren') or m.start("all_text")
+            #else:
+                #text = m.group("text")
+                #start = m.start('text')
+            # ==================================================
             text = m.group("text")
             start = m.start('text')
+            # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
             # Lua uses the same escaping as python. Let's use this to our
             # advantage.
