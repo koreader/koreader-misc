@@ -14,18 +14,28 @@ from confgettext import head
 
 
 class Lua_GetText(object):
+    #_SIMPLE_STRING = re.compile(
+        #r'''_\s*
+        #(?P<paren>[(])?\s*        #  opening parenthesis?
+        #(?P<all_text>(
+            #((?P<quote>["'])|(?P<doublep>\[\[))  #  opening string mark?
+            #(?P<text>.*?(?<!\\))
+            #(?(quote)(?P=quote)|\]\])\s*
+            #(?(paren)(?P<concat>\.\.\s*))?
+        #)+)
+        #(?(paren)\)) # if opening parenthese was found, find closing one
+        #''', re.M | re.DOTALL | re.VERBOSE
+    #)
     _SIMPLE_STRING = re.compile(
-        r'''_\s*
-        (?P<paren>[(])?\s*        #  opening parenthesis?
+        r'''_\(        #parenthese must follow _
         (?P<all_text>(
-            ((?P<quote>["'])|(?P<doublep>\[\[))  #  opening string mark?
+            (?P<quote>["'])  #  opening string mark?
             (?P<text>.*?(?<!\\))
-            (?(quote)(?P=quote)|\]\])\s*
-            (?(paren)(?P<concat>\.\.\s*))?
-        )+)
-        (?(paren)\)) # if opening parenthese was found, find closing one
+            (?(quote)(?P=quote))\s*
+        )+)\)
         ''', re.M | re.DOTALL | re.VERBOSE
     )
+
     _CONCATENATION = re.compile(
         r'''(['"]|(\]\]))\s*\.\.\s*(['"]|\[\[)?  # a " .. ' continuation
         ''', re.M | re.DOTALL | re.VERBOSE
@@ -35,17 +45,8 @@ class Lua_GetText(object):
 
     def parse(self, contents, filename):
         for m in self._SIMPLE_STRING.finditer(contents):
-            if m.group("concat"):
-                text = m.group("all_text").strip()
-                text = self._CONCATENATION.subn("", text)[0]
-                if text.startswith('[['): text = text[2:]
-                elif text[0] in '\'"': text = text[1:]
-                if text.endswith(']]'): text = text[:-2]
-                elif text[-1] in '\'"': text = text[:-1]
-                start = m.start('paren') or m.start("all_text")
-            else:
-                text = m.group("text")
-                start = m.start('text')
+            text = m.group("text")
+            start = m.start('text')
 
             # Lua uses the same escaping as python. Let's use this to our
             # advantage.
