@@ -9,6 +9,7 @@ git clone git://github.com/koreader/koreader.git
 cd koreader
 echo "compile and build customupdate"
 PATH="/opt/arm-2012.03/bin:$PATH"
+USE_FIXED_POINT=1
 make fetchthirdparty
 make customupdate
 korzip=`find koreader*.zip |sort -r |head -1`
