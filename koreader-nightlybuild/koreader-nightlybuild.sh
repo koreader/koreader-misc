@@ -12,9 +12,9 @@ PATH="/opt/arm-2012.03/bin:$PATH"
 USE_FIXED_POINT=1
 USE_NO_CCACHE=1
 make fetchthirdparty
-make
 make customupdate
-make koboupdate
+make clean
+make TARGET_DEVICE=KOBO koboupdate
 kindlezip=`find koreader-kindle*.zip |sort -r |head -1`
 kobozip=`find koreader-kobo*.zip |sort -r |head -1`
 # upload to Google code
