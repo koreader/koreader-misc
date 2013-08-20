@@ -1,0 +1,6 @@
+[submodule "ffi-cdecl/gcc-lua-cdecl"]
+	path = ffi-cdecl/gcc-lua-cdecl
+	url = http://git.colberg.org/gcc-lua-cdecl.git
+[submodule "ffi-cdecl/gcc-lua"]
+	path = ffi-cdecl/gcc-lua
+	url = http://git.colberg.org/gcc-lua.git
