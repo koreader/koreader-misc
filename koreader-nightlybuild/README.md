@@ -1,4 +1,3 @@
-
 koreader-nightlybuild
 ======================
 
@@ -18,6 +17,3 @@ Usage
 
 * Edit koreader-nightlybuild.conf according to your need.
 * run koreader-nightlybuild.sh
-
-
-
