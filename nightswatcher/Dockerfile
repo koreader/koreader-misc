@@ -1,6 +1,5 @@
 FROM phusion/baseimage:0.9.18
 
-
 RUN apt-get update
 RUN apt-get install -y build-essential python-dev python-pip unzip
 RUN apt-get clean
