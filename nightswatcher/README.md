@@ -20,6 +20,7 @@ docker run \
         -p 9742:9742 \
         -e GITLAB_TRIGGER_TOKEN='foo' \
         -e GITLAB_WEBHOOK_TOKEN='bar' \
+        -e GITHUB_RELEASE_TOKEN='baz' \
         -d houqp/nightswatcher:0.1.1
 ```
 
