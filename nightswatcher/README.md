@@ -23,7 +23,7 @@ docker run \
         -e GITLAB_TRIGGER_TOKEN='foo' \
         -e GITLAB_WEBHOOK_TOKEN='bar' \
         -e GITHUB_RELEASE_TOKEN='baz' \
-        -d houqp/nightswatcher:0.1.1
+        -d houqp/nightswatcher:0.4.1
 ```
 
 All new builds will be saved into `/data/release_download` volume.

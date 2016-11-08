@@ -1,5 +1,7 @@
-koreader-nightlybuild
-======================
+koreader-nightlybuild (deprecated)
+==================================
+
+WARN: please checkout the nightswatcher script instead
 
 Nightly build script for KOReader, this script will automatically build
 KOReader from latest dev code and upload the package to google code.
