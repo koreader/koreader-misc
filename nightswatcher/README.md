@@ -23,10 +23,11 @@ docker run \
         -e GITLAB_TRIGGER_TOKEN='foo' \
         -e GITLAB_WEBHOOK_TOKEN='bar' \
         -e GITHUB_RELEASE_TOKEN='baz' \
+        -e APK_SIGN_KEY_PASS='foo' \
+        -e APK_SIGN_STORE_PASS='foo' \
+        -e APK_SIGN_KEY_STORE_PATH='/metadata/apk.keystore' \
         -d houqp/nightswatcher:0.4.1
 ```
 
 All new builds will be saved into `/data/release_download` volume.
 OTA related files will be saved into `/data/ota` volume.
-
-NOTE: android apk signing key is required in `/metadata` volume.
