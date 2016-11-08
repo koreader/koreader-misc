@@ -17,6 +17,8 @@ Then spin up the service with the following docker command:
 docker run \
         --name nightswatcher \
         -v `pwd`/download:/data/release_download \
+        -v `pwd`/ota:/data/ota \
+        -v `pwd`/metadata:/metadata \
         -p 9742:9742 \
         -e GITLAB_TRIGGER_TOKEN='foo' \
         -e GITLAB_WEBHOOK_TOKEN='bar' \
@@ -24,4 +26,7 @@ docker run \
         -d houqp/nightswatcher:0.1.1
 ```
 
-All builds will be saved into download directory.
+All new builds will be saved into `/data/release_download` volume.
+OTA related files will be saved into `/data/ota` volume.
+
+NOTE: android apk signing key is required in `/metadata` volume.
