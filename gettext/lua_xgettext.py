@@ -4,6 +4,8 @@
 ##########################################################################
 # This script is taken from wideland project:
 # http://bazaar.launchpad.net/~widelands-dev/widelands/trunk/files/head:/utils/
+# Upstream project switched to real gettext. Last relevant revision at:
+# http://bazaar.launchpad.net/~widelands-dev/widelands/trunk/view/6845/utils/lua_xgettext.py
 ##########################################################################
 
 
@@ -29,9 +31,9 @@ class Lua_GetText(object):
     _SIMPLE_STRING = re.compile(
         r'''_\(        #parenthese must follow _
         (?P<all_text>(
-            (?P<quote>["'])  #  opening string mark?
+            ((?P<quote>["'])|(?P<doublep>\[\[))  #  opening string mark?
             (?P<text>.*?(?<!\\))
-            (?(quote)(?P=quote))\s*
+            (?(quote)(?P=quote)|\]\])\s*
         )+)\)
         ''', re.M | re.DOTALL | re.VERBOSE
     )
@@ -93,8 +95,9 @@ class Lua_GetText(object):
             else:
                 s += 'msgid ""\n'
                 lines = string.split('\n')
-                s += ''.join('"%s\\n"\n' % l for l in lines[:-1])
-                s += '"%s"\n' % lines[-1]
+                s += '"'
+                s += ''.join('%s\\n' % l for l in lines[:-1])
+                s += '%s"\n' % lines[-1]
             s += 'msgstr ""\n\n'
 
         return s
