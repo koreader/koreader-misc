@@ -9,6 +9,7 @@
 ##########################################################################
 
 
+from __future__ import print_function
 from collections import defaultdict
 import re
 
@@ -29,7 +30,7 @@ class Lua_GetText(object):
         #''', re.M | re.DOTALL | re.VERBOSE
     #)
     _SIMPLE_STRING = re.compile(
-        r'''_\(        #parenthese must follow _
+        r'''(_|gettext)\(        #parenthese must follow _
         (?P<all_text>(
             ((?P<quote>["'])|(?P<doublep>\[\[))  #  opening string mark?
             (?P<text>.*?(?<!\\))
@@ -116,4 +117,4 @@ if __name__ == '__main__':
     for fn in sys.argv[1:]:
         t.parse(open(fn).read(), fn)
 
-    print t
+    print(t)
