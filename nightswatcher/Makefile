@@ -1,14 +1,14 @@
-VERSION=0.4.8
+VERSION=0.4.9
 
 all: build
 
 build:
 	docker build --rm=true -t koreader/nightswatcher:$(VERSION) .
+	docker tag koreader/nightswatcher:$(VERSION) koreader/nightswatcher:latest
 
 run:
 	docker run --name nightswatcher -d koreader/nightswatcher:$(VERSION)
 
 push:
 	docker push koreader/nightswatcher:$(VERSION)
-	docker tag koreader/nightswatcher:$(VERSION) koreader/nightswatcher:latest
 	docker push koreader/nightswatcher:latest
