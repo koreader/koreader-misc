@@ -11,22 +11,23 @@ First, you need to setup a pipeline service hook token and trigger token in
 gitlab. The webhook needs to be pointed at
 `http://YOURDOMAIN:9742/webhooks/gitlab-pipeline`.
 
-Then spin up the service with the following docker command:
+Then spin up the service with the following Docker command.
+`--rm` removes the nightswatcher name when you `docker stop nightswatcher` so that you can more easily iterate.
 
 ```bash
 docker run \
         --name nightswatcher \
+        --rm \
         -v `pwd`/download:/data/release_download \
         -v `pwd`/ota:/data/ota \
         -v `pwd`/metadata:/metadata \
         -p 9742:9742 \
         -e GITLAB_TRIGGER_TOKEN='foo' \
         -e GITLAB_WEBHOOK_TOKEN='bar' \
-        -e GITHUB_RELEASE_TOKEN='baz' \
         -e APK_SIGN_KEY_PASS='foo' \
         -e APK_SIGN_STORE_PASS='foo' \
         -e APK_SIGN_KEY_STORE_PATH='/metadata/apk.keystore' \
-        -d houqp/nightswatcher:0.4.1
+        -d koreader/nightswatcher:0.4.16
 ```
 
 All new builds will be saved into `/data/release_download` volume.
