@@ -32,7 +32,7 @@ class Lua_GetText(object):
     _SIMPLE_STRING = re.compile(
         r'''(_|gettext)\(        #parenthese must follow _
         (?P<all_text>(
-            ((?P<quote>["'])|(?P<doublep>\[\[))  #  opening string mark?
+            ((?P<quote>["'])|(?P<doublep>\[\[(\n)?))  #  opening string mark? ignore newline directly after [[ like Lua
             (?P<text>.*?(?<!\\))
             (?(quote)(?P=quote)|\]\])\s*
         )+)\)
