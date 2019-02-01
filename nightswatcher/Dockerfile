@@ -4,7 +4,7 @@ RUN add-apt-repository -y ppa:openjdk-r/ppa
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
         python-wheel python-setuptools build-essential python-dev python-pip \
-        unzip zip zipalign zsync openjdk-8-jdk \
+        unzip zipalign zsync openjdk-8-jdk \
     && apt-get remove -y openjdk-7-jre-headless \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
