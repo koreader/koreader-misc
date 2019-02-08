@@ -80,7 +80,7 @@ def sign_apk(apk_path):
          '--ksAlias', APK_SIGN_KEY_ALIAS,
          '--ksKeyPass', APK_SIGN_KEY_PASS,
          '--ksPass', APK_SIGN_STORE_PASS,
-         '--apks', apk_path, 'koreader_release',
+         '--apks', apk_path,
          '--overwrite',
          '--verbose'])
     logger.info('Output from uber-apk-signer:\n%s', re)
