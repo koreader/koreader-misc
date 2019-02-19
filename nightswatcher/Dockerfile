@@ -1,11 +1,10 @@
-FROM phusion/baseimage:0.9.22
+FROM phusion/baseimage:0.10.2
 
-RUN add-apt-repository -y ppa:openjdk-r/ppa
 RUN apt-get update \
+    && apt-get upgrade -y \
     && apt-get install --no-install-recommends -y \
         python-wheel python-setuptools build-essential python-dev python-pip \
         unzip zipalign zsync openjdk-8-jdk \
-    && apt-get remove -y openjdk-7-jre-headless \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY ./requirements.txt /requirements.txt
