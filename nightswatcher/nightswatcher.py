@@ -199,9 +199,9 @@ def extract_build(artifact_zip, build):
             if os.path.exists(link_file_nightly):
                 os.remove(link_file_nightly)
             shutil.copy2(link_file, link_file_nightly)
-            if "android" in build['name']:
-                tmp_android_fdroid_latest_path = tmp_version_dir + "koreader-android-fdroid-latest"
-                android_fdroid_latest = OTA_DIR + "koreader-android-fdroid-latest"
+            if 'android' in build['name']:
+                tmp_android_fdroid_latest_path = tmp_version_dir + 'koreader-android-fdroid-latest'
+                android_fdroid_latest = OTA_DIR + 'koreader-android-fdroid-latest'
                 if os.path.exists(android_fdroid_latest):
                     os.remove(android_fdroid_latest)
                 shutil.copy2(tmp_android_fdroid_latest_path, android_fdroid_latest)
