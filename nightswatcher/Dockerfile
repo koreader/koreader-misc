@@ -11,6 +11,6 @@ COPY ./requirements.txt /requirements.txt
 RUN pip3 install --no-cache-dir -r requirements.txt && rm -rf /tmp/* /var/tmp/*
 COPY ./nightswatcher.py /nightswatcher.py
 
-RUN curl -L https://github.com/patrickfav/uber-apk-signer/releases/download/v1.0.0/uber-apk-signer-1.0.0.jar >/uber-apk-signer.jar
+RUN curl -L https://github.com/patrickfav/uber-apk-signer/releases/download/v1.1.0/uber-apk-signer-1.1.0.jar >/uber-apk-signer.jar
 
 CMD ["/usr/local/bin/gunicorn", "--access-logfile", "-", "-b", "0.0.0.0:9742", "-w", "1", "-k", "gevent", "nightswatcher:api"]
