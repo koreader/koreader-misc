@@ -108,7 +108,6 @@ def get_artifact_metadata(artifact_zip):
         commit_number = m.group("commit_number")
         ftype = m.group("ftype")
         artifact[ftype] = os.path.basename(f.strip())
-        break
 
     zf.close()
     return platform, version, commit_number, artifact
