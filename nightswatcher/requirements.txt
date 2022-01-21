@@ -1,5 +1,5 @@
 falcon==3.0.1
-ujson==4.0.2
+ujson==5.1.0
 gunicorn==20.1.0
 gevent==21.1.2
 streql==3.0.2
