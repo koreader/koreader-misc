@@ -120,6 +120,7 @@ def is_stable(commit_number):
 
 download_artifact_ext_map = {
     'build_android': 'apk',
+    'build_android_aarch64': 'apk',
     'build_android_x86': 'apk',
     'build_appimage': 'AppImage',
     'build_ubuntutouch': 'click',
@@ -127,7 +128,7 @@ download_artifact_ext_map = {
 
 # names come from GitLab, see https://gitlab.com/koreader/nightly-builds/blob/master/.gitlab-ci.yml
 ota_link_models = frozenset([
-                        'build_android', 'build_android_x86',
+                        'build_android', 'build_android_aarch64', 'build_android_x86',
                         'build_appimage'])
 ota_zsync_models = frozenset([
                         'build_cervantes',
