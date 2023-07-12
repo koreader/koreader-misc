@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker nightswatcher
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a nightswatcher
+ExecStop=/usr/bin/docker stop -t 2 nightswatcher
+
+[Install]
+WantedBy=multi-user.target
