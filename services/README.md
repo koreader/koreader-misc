@@ -7,4 +7,4 @@ The service definition files used on the koreader server to support kosync, nigh
 Usage
 -----
 
-Copy these files to `/etc/systemd/system/` and run `/etc/systemd/system/enable-ko-servers.sh`.
+Copy these files to `/etc/systemd/system/` and run `/etc/systemd/system/enable-ko-services.sh`.
