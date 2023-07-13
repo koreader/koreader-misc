@@ -1,0 +1,12 @@
+[Unit]
+Description=Docker prom
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a prom
+ExecStop=/usr/bin/docker stop -t 2 prom
+
+[Install]
+WantedBy=multi-user.target
