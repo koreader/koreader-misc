@@ -1,7 +1,5 @@
 VERSION=1.1-20.04
 
-# yoohoo
-
 all: build
 
 build:
