@@ -1,4 +1,4 @@
-VERSION=1.1-20.04
+VERSION=1.2-20.04
 
 all: build
 
