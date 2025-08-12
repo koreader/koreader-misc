@@ -1,2 +1,3 @@
 [MESSAGES CONTROL]
-disable=line-too-long,logging-fstring-interpolation
+disable=consider-using-f-string,line-too-long,logging-fstring-interpolation,missing-docstring
+extension-pkg-allow-list=ujson
