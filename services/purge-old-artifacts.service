@@ -1,0 +1,8 @@
+[Unit]
+Description=Purge old build artifacts
+
+[Service]
+Type=oneshot
+ExecStart=/ops/prod/build/purge_old_artifacts_v2.sh
+StandardOutput=journal
+StandardError=inherit
