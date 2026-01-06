@@ -1,0 +1,9 @@
+[Unit]
+Description=Hourly purge at minute 9
+
+[Timer]
+OnCalendar=*:09
+Persistent=true
+
+[Install]
+WantedBy=timers.target
